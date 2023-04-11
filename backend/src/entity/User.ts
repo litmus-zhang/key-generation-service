@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-import { Key } from "./Key"
+import { Key } from "./Key";
+import { IsEmail } from "class-validator";
 
 @Entity()
 export class User {
@@ -8,15 +9,22 @@ export class User {
     id: number
 
     @Column()
-    firstName: string
+    fullName: string
 
-    @Column()
-    lastName: string
+    @Column(
+        {
+            unique: true
+        }
+    )
+    @IsEmail()
+    email: string
 
     @Column()
     password: string
 
-    @ManyToOne(() => Key, (key) => key.user)
-    keys: Key[]
+    // @ManyToOne(() => ApiKey, (key) => key.user)
+    // apikeys: ApiKey[]
+
+    
 
 }

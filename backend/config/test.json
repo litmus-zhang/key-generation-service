@@ -1,11 +1,11 @@
 {
     "databaseConfig": {
-        "type": "cockroachdb",
-        "host": "localhost",
-        "port": 2501,
+        "database": "test_db",
         "username": "test",
-        "password": "test123",
-        "database": "test_db"
+        "password": "test1234",
+        "port": 5500,
+        "type": "postgres",
+        "logging": true
     },
-    "port": 3001
+    "port": 4000
 }

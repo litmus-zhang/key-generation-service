@@ -1,0 +1,29 @@
+version: "3"
+
+
+services:
+  test_db:
+    image: postgres:latest
+    container_name: TestDB
+    ports:
+      - "5500:5432"
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test1234
+      POSTGRES_DB: test_db
+    volumes:
+      - TestDB:/var/lib/postgresql/data
+  dev_db:
+    image: postgres:latest
+    container_name: DevDB
+    ports:
+      - "5501:5432"
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev1234
+      POSTGRES_DB: development_db
+    volumes:
+      - DevDB:/var/lib/postgresql/data
+volumes:
+  TestDB:
+  DevDB:

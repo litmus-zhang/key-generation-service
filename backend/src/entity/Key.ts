@@ -1,18 +1,26 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User";
+import { generateApiKey } from "../utils/generate";
 
 @Entity()
 
 export class Key {
+
     @PrimaryGeneratedColumn("uuid")
     id: string
 
-    @Column()
-    apiKey: string
+    @Column({
+        unique: true
+    })
+    value: string
 
-    @Column(() => Date.now)
-    date: number
+    @CreateDateColumn()
+    createdAt: Date
 
-    @OneToMany(() => User, user => user.keys)
-    user: User
+    // @Column("uuid")
+    // userId: string;
+
+    // @OneToMany(() => User, user => user.apikeys)
+    // user: User
+
 }

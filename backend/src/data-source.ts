@@ -1,24 +1,28 @@
 import "reflect-metadata"
-import { DataSource, DataSourceOptions } from "typeorm"
+import { DataSource } from "typeorm"
 import { User } from "./entity/User"
-import { config } from "config"
+import config from "config"
 import { Key } from "./entity/Key"
-
-interface databaseConfigInterface {
-    type: "postgres" | "cockroachdb"
+interface IDataSource {
+    type: "postgres"
     host: string
     port: number
     username: string
     password: string
     database: string
 }
-const dbConfig: databaseConfigInterface = config.get<"databaseConfig">();
+
+const dbConfig: IDataSource = config.get("databaseConfig");
 
 export const AppDataSource = new DataSource({
     ...dbConfig,
-    synchronize: false,
+    synchronize: true,
     logging: false,
-    entities: [User, Key],
-    migrations: [],
+    entities: [
+        User,
+        Key
+    ],
+    migrations: ["migration/*.ts"],
     subscribers: [],
+    migrationsTableName: "custom_migration_table",
 })
