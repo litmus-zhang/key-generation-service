@@ -1,0 +1,11 @@
+{
+    "databaseConfig": {
+        "type": "cockroachdb",
+        "host": "localhost",
+        "port": 2500,
+        "username": "dev",
+        "password": "dev123",
+        "database": "dev_db"
+    }, 
+    "port" : 3000
+}

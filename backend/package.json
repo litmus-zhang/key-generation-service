@@ -1,0 +1,29 @@
+{
+   "name": "backend",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "@types/jest": "^29.5.0",
+      "@types/node": "^16.11.10",
+      "@types/supertest": "^2.0.12",
+      "ts-node": "10.7.0",
+      "ts-node-dev": "^2.0.0",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "body-parser": "^1.19.1",
+      "config": "^3.3.9",
+      "cross-env": "^7.0.3",
+      "express": "^4.17.2",
+      "pg": "^8.4.0",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.14"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpile-only src/index.ts",
+      "test": "cross-env NODE_ENV=test jest --watch",
+      "typeorm": "typeorm-ts-node-commonjs"
+   }
+}

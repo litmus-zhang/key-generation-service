@@ -1,0 +1,11 @@
+{
+  "name": "key-generation-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/litmus-zhang/key-generation-service.git",
+  "author": "litmus-zhang <abdulsalamlukmon9@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "typeorm": "^0.3.14"
+  }
+}
