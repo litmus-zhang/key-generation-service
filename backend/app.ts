@@ -1,4 +1,3 @@
-import { AppDataSource } from "./src/data-source";
 import { app } from "./src";
 import config from "config"
 
